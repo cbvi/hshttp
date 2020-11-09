@@ -4,9 +4,9 @@ type Path = String
 
 firstSpace :: String -> Int -> Maybe Int
 firstSpace [] _ = Nothing
-firstSpace s i = if head s == ' '
+firstSpace (s:sx) i = if s == ' '
     then Just i
-    else firstSpace (drop 1 s) (i+1)
+    else firstSpace sx $ succ i
 
 takeWord :: String -> Maybe String
 takeWord s = case firstSpace s 0 of
